@@ -10,8 +10,8 @@ export const balance = createSlice({
             state.value += 1;
         },
         spend: (state, action) => {
-            if(state.value >= action.payload.price){
-                state.value -= action.payload.price
+            if(state.value >= action.payload.cost){
+                state.value -= action.payload.cost
             }
         },
         restore: (state, action) => {

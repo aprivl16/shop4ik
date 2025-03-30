@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux'
 import { restore } from '../slices/balanceSlice'
 import { removeFromInventory } from '../slices/inventorySlice'
 
-const InventoryItem = ({img, price, title, count}) => {
+const InventoryItem = ({cost, img, title, id, countAddedItems}) => {
   const dispatch = useDispatch()
+
   return (
     <div className="inventory__wrapper">
       
@@ -12,11 +13,11 @@ const InventoryItem = ({img, price, title, count}) => {
         <div className="inventory-item__img-container">
             <img src={img} alt="" />
         </div>
-        <div className="inventory-item__price">{price * count + ' $'}</div>
-        <div style={{display: count === 1 ? "none" : "block"}}className="inventory-item__count">{count === 1 ? false: 'x'+ count}</div>
+        <div className="inventory-item__price">{cost * countAddedItems + ' $'}</div>
+        <div style={{display: countAddedItems === 1 ? "none" : "block"}}className="inventory-item__count">{countAddedItems === 1 ? "": 'x'+ countAddedItems}</div>
         <button className='inventory-item__sell' onClick={() => {
-          dispatch(restore(price * count))
-          dispatch(removeFromInventory(title))
+          dispatch(restore(cost * countAddedItems))
+          dispatch(removeFromInventory(id))
         }}>Sell all</button>
     </div>
   )

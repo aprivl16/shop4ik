@@ -1,24 +1,21 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { spend } from "./balanceSlice";
-import { useSelector } from "react-redux";
-import { store } from "../store/store";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const inventory = createSlice({
     name: 'inventory',
     initialState: [],
     reducers: {
         addToInventory: (state, action) => {
-            const {price, img, title, currentBalance, quantity} = action.payload;
-            const boughtItem = state.find(item => item.title === title)
-            if(boughtItem && currentBalance >= price){
-                boughtItem.count += quantity
+            const {cost, img, title, currentBalance, numOfNewShopItems, id} = action.payload;
+            const purchasedItem = state.find(item => item.id === id)
+            if(purchasedItem && currentBalance >= cost){
+                purchasedItem.countAddedItems += numOfNewShopItems
             }
-            else if(currentBalance >= price ){
-                state.push({price, img, title, count: 1})
+            else if(currentBalance >= cost ){
+                state.push({cost, img, title, id, countAddedItems: 1})
             }
         },
         removeFromInventory: (state, action) => {
-            const index = state.findIndex((item) => item.title === action.payload)
+            const index = state.findIndex((item) => item.id === action.payload)
             state.splice(index, 1)
         }
     }

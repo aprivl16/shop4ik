@@ -1,25 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { shopItems } from '../shop-items'
+import React, { useEffect } from 'react'
 import ShopItem from './ShopItem'
 import { useDispatch, useSelector } from 'react-redux'
-import { earn } from '../slices/balanceSlice'
-import { store } from '../store/store'
-import { addToInventory } from '../slices/inventorySlice'
 import { addToTheShop } from '../slices/shopSlice'
+import { nanoid } from '@reduxjs/toolkit'
 
 const Shop = () => {
   const dispatch = useDispatch()
-  const currentShopSelector = useSelector((store) => store.shop);
+  const currentShopStatus = useSelector(store => store.shop);
+  const url = "http://localhost:3001/shopItems";
 
-  const simpleThunk = async (dispatch, controller) => {
+  const fetchShopItemsThunk = async (dispatch, controller) => {
     try {
-      const request = await fetch("http://localhost:3001/shopItems", {
-        signal: controller.signal
-      })
+      const request = await fetch(url, { signal: controller.signal });
       const shopItems = await request.json()
 
-      !currentShopSelector.length && shopItems
-        .map(item => ({ ...item, id: crypto.randomUUID() }))
+      currentShopStatus.length === 0 && shopItems
+        .map(item => ({ ...item, id: nanoid() }))
         .forEach(item => {
           dispatch(addToTheShop(item))
         })
@@ -29,7 +25,7 @@ const Shop = () => {
         return
       }
       else {
-        throw err
+        console.log(err.message)
       }
     }
   }
@@ -37,7 +33,7 @@ const Shop = () => {
 
   useEffect(() => {
     let controller = new AbortController()
-    simpleThunk(dispatch, controller)
+    fetchShopItemsThunk(dispatch, controller);
 
     return () => {
       controller.abort()
@@ -47,10 +43,11 @@ const Shop = () => {
   return (
     <div className="shop" >
       {
-        currentShopSelector.length === 0 ?
-          (<div className="">loading...</div>)
+        currentShopStatus.length === 0
+          ?
+          <div className="">loading...</div>
           :
-          (currentShopSelector.map(item => <ShopItem {...item} key={item.id} />))
+          currentShopStatus.map(item => <ShopItem {...item} key={item.id} />)
       }
     </div>
   )

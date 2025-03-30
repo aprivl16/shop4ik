@@ -12,15 +12,18 @@ const Navbar = () => {
           <div className="img-wrapper">
             <img src="real-logo.png" alt="" />
           </div>
+
           <div className="link-wrapper">
             <Link to="/shop">Shop</Link>
-            <Link to="/inventary">Inventory</Link>
+            <Link to="/inventory">Inventory</Link>
             <Link to="/earn">Earn Money</Link>
           </div>
+
           <div className="balance">
             <div className="balance-icon">$</div>
             <div className="balance-score">{balance}</div>
-            </div>
+          </div>
+          
         </div>
       </div>
     </nav>

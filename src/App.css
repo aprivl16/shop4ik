@@ -220,6 +220,7 @@ a:hover {
     border: 3px solid darkkhaki; 
 }
 .shop-item__img-container img{
+    cursor: pointer;
     transition: .7s;
 }
 .shop-item__img-container img:hover{
@@ -272,31 +273,31 @@ a:hover {
     padding: 15px 20px;
     justify-content: space-between;
     height: 350px;
-    box-shadow: 15px -15px 30px aquamarine, -15px 15px 30px aquamarine;
-    background-image: linear-gradient(lightsteelblue, blue);
+    box-shadow: 2px -2px 10px aquamarine, -2px 2px 10px aquamarine;
+    background-image: linear-gradient(lightsteelblue, lightsteelblue,rgba(0, 255, 255, .7));
 }
 .inventory-item__img-container{
     max-width: 220px;
     border-radius: 30%;
+    height: 200px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 200px;
 }
 .inventory-item__title{
     font-size: 30px;
+    margin-bottom: 10px;
     font-family: "Castellar", sans-serif;
     color: white;
     text-shadow: 20px -20px 40px red, -20px 20px 40px red;
     transition: .5s;
-}
-.inventory-item__titleX:hover{
-    text-decoration: line-through;
+    letter-spacing: 1.7px;
 }
 .inventory-item__price{
     font-size: 25px;
     padding: 5px 28px;
+    margin-top: 10px;
     background: #79a471 ;
     font-family: 'Bradly Hand ITC', sans-serif;
     color: white;
@@ -315,8 +316,9 @@ a:hover {
 }
 
 .inventory-item__sell{
+    margin-top: 10px;
     padding: 10px 15px;
-    
+    background: wheat;
 }
 
 
