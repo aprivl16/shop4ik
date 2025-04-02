@@ -1,45 +1,76 @@
 {
-    "shopItems": [
-        {
-            "title": "T-short",
-            "img": "t-short-no-bg.png",
-            "price": 50
-        },
-        {
-            "title": "Sweatshirt",
-            "img": "sweatshirt-no-bg.png",
-            "price": 80
-        },
-        {
-            "title": "Cap",
-            "img": "cap-no-bg.png",
-            "price": 20
-        },
-    
-        {
-            "title": "Trousers",
-            "img": "trousers-no-bg.png",
-            "price": 50
-        },
-        {
-            "title": "Tom Ford perfume",
-            "img": "https://avatars.mds.yandex.net/i?id=03c602d5b0db6ccf949df7197cbf5123_l-5364966-images-thumbs&n=13",
-            "price": 200
-        },
-        {
-            "title": "Yeezy Boots",
-            "img": "https://wayoff.ru/upload/iblock/b89/peyale3occ77e8znnuzkj4qj4vn3q112.png",
-            "price": 40
-        },
-        {
-            "title": "Coat",
-            "img": "coat-no-bg.png",
-            "price": 100
-        },
-        {
-            "title": "Backpack",
-            "img": "backpack-no-bg.png",
-            "price": 60
-        }
-    ]
+  "shopItems": [
+    {
+      "title": "T-short",
+      "img": "t-short-no-bg.png",
+      "price": 50,
+      "id": "a46b"
+    },
+    {
+      "title": "Sweatshirt",
+      "img": "sweatshirt-no-bg.png",
+      "price": 80,
+      "id": "b37e"
+    },
+    {
+      "title": "Cap",
+      "img": "cap-no-bg.png",
+      "price": 20,
+      "id": "254e"
+    },
+    {
+      "title": "Trousers",
+      "img": "trousers-no-bg.png",
+      "price": 50,
+      "id": "cc9c"
+    },
+    {
+      "title": "Tom Ford perfume",
+      "img": "https://avatars.mds.yandex.net/i?id=03c602d5b0db6ccf949df7197cbf5123_l-5364966-images-thumbs&n=13",
+      "price": 200,
+      "id": "c1d9"
+    },
+    {
+      "title": "Yeezy Boots",
+      "img": "https://wayoff.ru/upload/iblock/b89/peyale3occ77e8znnuzkj4qj4vn3q112.png",
+      "price": 40,
+      "id": "6c76"
+    },
+    {
+      "title": "Coat",
+      "img": "coat-no-bg.png",
+      "price": 100,
+      "id": "22f8"
+    },
+    {
+      "title": "Backpack",
+      "img": "backpack-no-bg.png",
+      "price": 60,
+      "id": "8354"
+    },
+    {
+      "id": "d3f3",
+      "title": "Air Jordan",
+      "img": "air-jordan-transparent.png",
+      "price": "200"
+    },
+    {
+      "id": "1399",
+      "title": "Supreme Cap",
+      "img": "cap2.jpg",
+      "price": "20"
+    },
+    {
+      "id": "3e78",
+      "title": "Box",
+      "img": "logo512.png",
+      "price": "240"
+    },
+    {
+      "id": "icAyn9eb6UNFW5A12HpGJ",
+      "title": "Palace Jacket",
+      "img": "palace-jacket.jpg",
+      "price": "160"
+    }
+  ]
 }

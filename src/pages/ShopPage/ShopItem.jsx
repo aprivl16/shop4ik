@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { spend } from '../slices/balanceSlice'
+import { spend } from '../../balanceLogic/balance.slice'; 
 import { useDispatch, useSelector } from 'react-redux'
-import { addToInventory } from '../slices/inventorySlice';
+import { addToInventory } from '../InventoryPage/inventory.slice'; 
 
 const ShopItem = ({ img, title, price, id }) => {
   const dispatch = useDispatch();
@@ -15,7 +15,6 @@ const ShopItem = ({ img, title, price, id }) => {
     <div className="shop-item">
       <h4 className="shop-item__title">{title}</h4>
 
-      <div className="shop-item__content">
 
         <div className="shop-item__img-container">
           <img src={img} alt="" />
@@ -53,7 +52,6 @@ const ShopItem = ({ img, title, price, id }) => {
           </button>
         </div>
 
-      </div>
     </div>
   )
 }

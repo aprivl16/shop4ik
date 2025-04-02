@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
-import ShopItem from './ShopItem'
+import React, { useEffect, useState } from 'react'
+import ShopItem from './ShopItem.jsx'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToTheShop } from '../slices/shopSlice'
+import { addToTheShop } from './shop.slice.js'
 import { nanoid } from '@reduxjs/toolkit'
+import ShopCardCreator from './ShopCardCreator.jsx'
+import { url } from '../../data.js'
+
+
 
 const Shop = () => {
   const dispatch = useDispatch()
+
   const currentShopStatus = useSelector(store => store.shop);
-  const url = "http://localhost:3001/shopItems";
 
   const fetchShopItemsThunk = async (dispatch, controller) => {
     try {
@@ -31,6 +35,8 @@ const Shop = () => {
   }
 
 
+
+
   useEffect(() => {
     let controller = new AbortController()
     fetchShopItemsThunk(dispatch, controller);
@@ -47,8 +53,15 @@ const Shop = () => {
           ?
           <div className="">loading...</div>
           :
-          currentShopStatus.map(item => <ShopItem {...item} key={item.id} />)
+          <>
+            {
+              currentShopStatus.map(item => <ShopItem {...item} key={item.id} />)
+            }
+            <ShopCardCreator />
+          </>
+
       }
+      <div className='balance-notation'>insufficient funds</div>
     </div>
   )
 }

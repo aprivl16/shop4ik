@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import balanceReducer from '../slices/balanceSlice'
-import invenoryReducer from '../slices/inventorySlice'
-import shopReducer from '../slices/shopSlice'
+import balanceReducer from '../balanceLogic/balance.slice'
+import invenoryReducer from '../pages/InventoryPage/inventory.slice'
+import shopReducer from '../pages/ShopPage/shop.slice'
 
 export const store = configureStore({
     reducer: {

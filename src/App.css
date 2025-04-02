@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Tahoma', sans-serif;
-    background: lightgrey;
+    background-image: linear-gradient(to right,lightsalmon, lightgoldenrodyellow, lightgoldenrodyellow, lightsalmon);
 }
 
 button {
@@ -111,8 +111,6 @@ a:hover {
     background-image: linear-gradient(90deg, purple, lightblue, aqua);
     width: 100%;
     padding: 10px 20px;
-    border-bottom: 3px dodgerblue solid;
-
 }
 
 .nav__wrapper {
@@ -177,23 +175,30 @@ a:hover {
     margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 30px 25px;
+    grid-template-rows: auto;    
+    gap: 40px;
     width: 100%;
+    position: relative;
 }
-
 .shop-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: lightseagreen;
+    
+    background-image: linear-gradient(white, skyblue);
     padding: 30px;
-    background: wheat;
+    gap: 30px 0px;
     border-radius: 20px;
 }
+
 
 .shop-item__title {
     align-self: center;
     text-align: center;
     font-size: 30px;
+    color: black;
 }
 
 .shop-item__content {
@@ -215,19 +220,142 @@ a:hover {
 .shop-item__img-container{
     max-height: 250px;
     border-radius: 20px;
-    background-image: linear-gradient(to top, white, lightblue, plum);
     overflow: hidden;
-    border: 3px solid darkkhaki; 
 }
 .shop-item__img-container img{
     cursor: pointer;
-    transition: .7s;
+    transition: .7s .4s;
 }
 .shop-item__img-container img:hover{
     transform: scale(1.1);
     
 }
 
+.balance-notation{
+    position: fixed;
+    background: rgba(240, 128, 128, .7);
+    right: 2%;
+    bottom: 10%;
+    color: whitesmoke;
+    opacity: 0;
+    transition: 1s;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px 
+}
+
+.add-new-shopCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(135deg, lightseagreen, lightgray, white, lightgray, lightseagreen);
+}
+.add-new-shopCard__title{
+    font-size: 25px;
+    letter-spacing: 2;    
+}
+.add-new-shopCard__form{
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 0px;
+    z-index: 5;
+}
+.add-new-shopCard__form input:not([type=submit]){
+    padding: 15px 20px;
+    background: transparent;
+    border-radius: 15px;
+    text-align: center;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-size: 25px;
+    z-index: 5;
+}
+.add-new-shopCard__form input[type=file]{
+    width: 0.1px;
+    height: 0.1px;
+    top: 50%;
+    left: 54%;
+    opacity: 0;
+    background: transparent;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: -10;
+}
+.input-file-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px 0;
+}
+.donwload-icon{
+    width: 230px;
+    height: 230px;
+    background: rgba(50, 205, 50, .7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.donwload-icon-arrow{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 85px;
+    height: 85px;
+    border-radius: 20px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 15px solid whitesmoke;
+    border-top: none;
+    border-left: none;
+}
+.donwload-icon::before{
+    content: "";
+    position: absolute;
+    height: 90px;
+    width: 15px;
+    background: white;
+    transform: translate(-50%, -50%);
+    top: 35%;
+    left: 50%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.donwload-icon::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 78%;
+    background: whitesmoke;
+    height: 10px;
+    width: 120px;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);    
+}
+.download-hint{
+    padding: 15px 20px;
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: bold;
+    background: rgba(0, 191, 255, .7);
+    border-radius: 20px;
+}
+.submit-form-btn{
+    padding: 10px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: slategray;
+    color: cornsilk;
+}
 .buy-btn{
     display: flex;
     font-size: 14px;
@@ -235,7 +363,7 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     gap: 0px 10px;
-    background: lightblue;
+    background: lightyellow;
     border: none;
     border-radius: 20px;
     transition: .5s;

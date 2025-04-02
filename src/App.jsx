@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Earn from "./components/Earn";
-import Shop from "./components/Shop";
-import Navbar from "./components/Navbar";
-import Inventory from "./components/Inventory";
-import WelcomePage from "./components/WelcomePage";
+import Earn from "./pages/EarnPage/Earn.jsx";
+import Shop from './pages/ShopPage/Shop.jsx';
+import Navbar from "./ui/Navbar.jsx";
+import Inventory from "./pages/InventoryPage/Inventory.jsx";
+import WelcomePage from "./ui/WelcomePage.jsx";
 
 
 function App() {  

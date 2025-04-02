@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { restore } from '../slices/balanceSlice'
-import { removeFromInventory } from '../slices/inventorySlice'
+import { restore } from '../../balanceLogic/balance.slice'
+import { removeFromInventory } from './inventory.slice'
 
 const InventoryItem = ({cost, img, title, id, countAddedItems}) => {
   const dispatch = useDispatch()

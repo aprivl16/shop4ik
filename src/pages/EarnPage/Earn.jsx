@@ -1,7 +1,7 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { store } from '../store/store'
-import { earn } from '../slices/balanceSlice';
+import { store } from '../../store/store'
+import { earn } from '../../balanceLogic/balance.slice';
 
 const Earn = () => {
   const dispatch = useDispatch();
