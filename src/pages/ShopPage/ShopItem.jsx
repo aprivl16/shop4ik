@@ -8,7 +8,7 @@ const ShopItem = ({ img, title, price, id }) => {
   const currentBalance = useSelector(store => store.balance.value)
   const [itemCounter, setItemCounter] = useState({
     isAdded: false,
-    value: 1,
+    value: 1
   })
   
   return (
@@ -44,7 +44,7 @@ const ShopItem = ({ img, title, price, id }) => {
           </button>
 
           <button
-            className='count-btn'
+            className='count-btn btn-increase-itemCounter'
             style={{ display: itemCounter.isAdded ? 'block' : "none" }}
             onClick={() => setItemCounter(prev => ({ ...prev, value: prev.value + 1 }))}
           >

@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 export const balance = createSlice({
     name: "balance",
     initialState: {
-        value: 1000
+        value: 1000,
+        canSpend: true,
     },
     reducers: {
         earn: (state) => {
@@ -11,8 +12,15 @@ export const balance = createSlice({
         },
         spend: (state, action) => {
             if(state.value >= action.payload.cost){
+                state.canSpend = true;
                 state.value -= action.payload.cost
             }
+            else{
+                state.canSpend = false;
+            }
+        },
+        resetSpendStatusToInicial: state => {
+            state.canSpend = true
         },
         restore: (state, action) => {
             state.value += action.payload
@@ -21,4 +29,4 @@ export const balance = createSlice({
 })
 
 export default balance.reducer
-export const {earn, spend, restore} = balance.actions
+export const {earn, spend, restore, resetSpendStatusToInicial} = balance.actions

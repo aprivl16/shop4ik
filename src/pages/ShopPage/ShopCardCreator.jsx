@@ -1,39 +1,28 @@
 import React, { useState } from 'react'
-import { url } from '../../data'
-import { addToTheShop } from './shop.slice' 
-import { nanoid } from '@reduxjs/toolkit'
+import { addShopItemToStore } from './shop.slice'
 import { useDispatch } from 'react-redux'
+import { nanoid } from '@reduxjs/toolkit'
+
+
 
 const ShopCardCreator = () => {
-   const dispatch = useDispatch()
+   const dispath = useDispatch()
 
    const submitNewShopCard = (e) => {
       e.preventDefault()
-      
+
       const { inputTitle, inputFile, inputPrice } = e.currentTarget
-      fetchNewShopItem({ inputTitle, inputFile, inputPrice })
+      const newShopItemData = {
+         title: inputTitle.value,
+         img: inputFile.files[0].name,
+         price: inputPrice.value,
+         id: nanoid()
+      }
+
+      dispath(addShopItemToStore(newShopItemData))
 
       e.currentTarget.reset()
       setFileLoading(inicialFileStatus)
-   }
-
-   const fetchNewShopItem = async (props) => {
-      
-      const { inputTitle, inputFile, inputPrice } = props
-      const shopItemObj = {
-         "title": inputTitle.value,
-         "img": inputFile.files[0].name,
-         "price": inputPrice.value,
-         "id": nanoid() 
-      }
-      const request = await fetch(url, {
-         method: "POST",
-         body: JSON.stringify(shopItemObj),
-         headers: {
-            "Content-Type": "application/json",
-         }
-      })
-      dispatch(addToTheShop(shopItemObj))
    }
 
    const inicialFileStatus = {

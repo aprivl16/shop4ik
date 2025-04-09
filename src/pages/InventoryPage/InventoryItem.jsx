@@ -14,7 +14,7 @@ const InventoryItem = ({cost, img, title, id, countAddedItems}) => {
             <img src={img} alt="" />
         </div>
         <div className="inventory-item__price">{cost * countAddedItems + ' $'}</div>
-        <div style={{display: countAddedItems === 1 ? "none" : "block"}}className="inventory-item__count">{countAddedItems === 1 ? "": 'x'+ countAddedItems}</div>
+        <div className="inventory-item__count" style={{display: countAddedItems === 1 ? "none" : "block"}}>{countAddedItems === 1 ? "": 'x'+ countAddedItems}</div>
         <button className='inventory-item__sell' onClick={() => {
           dispatch(restore(cost * countAddedItems))
           dispatch(removeFromInventory(id))
